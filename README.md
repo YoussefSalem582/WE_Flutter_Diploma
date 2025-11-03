@@ -308,24 +308,57 @@ Each session folder contains:
 
 ## 📸 Screenshots
 
-### ChargeHub App
-![Splash Screen](we_flutter_sessions/photos/ev%20app/logo.jpg)
-![Login](we_flutter_sessions/photos/ev%20app/login.png)
-![Signup](we_flutter_sessions/photos/ev%20app/signup.png)
-![Map View](we_flutter_sessions/photos/ev%20app/Map.png)
-![Car Collection](we_flutter_sessions/photos/ev%20app/car%20collection.jpg)
+### 🚗 ChargeHub - EV Charging Station Finder
 
-### Market WE
-![Login](we_flutter_sessions/photos/we-market/login.png)
-![Register](we_flutter_sessions/photos/we-market/register.png)
-![User Dashboard](we_flutter_sessions/photos/we-market/user%20dashboard%20.jpg)
-![Admin Dashboard](we_flutter_sessions/photos/we-market/admin%20dashboard%20.jpg)
-![Add Product](we_flutter_sessions/photos/we-market/add%20product.jpg)
+<div align="center">
 
-### Other Apps
-- Calculator: `we_flutter_sessions/photos/calculator.jpg`
-- Messenger: `we_flutter_sessions/photos/massenger.png`
-- Database Examples: `we_flutter_sessions/photos/database.png`
+| Splash Screen | Login | Signup |
+|:-------------:|:-----:|:------:|
+| <img src="we_flutter_sessions/photos/ev%20app/logo.jpg" width="250" height="500" alt="Splash Screen"/> | <img src="we_flutter_sessions/photos/ev%20app/login.png" width="250" height="500" alt="Login"/> | <img src="we_flutter_sessions/photos/ev%20app/signup.png" width="250" height="500" alt="Signup"/> |
+
+| Map View | Car Collection | Screen |
+|:--------:|:--------------:|:------:|
+| <img src="we_flutter_sessions/photos/ev%20app/Map.png" width="250" height="500" alt="Map View"/> | <img src="we_flutter_sessions/photos/ev%20app/car%20collection.jpg" width="250" height="500" alt="Car Collection"/> | <img src="we_flutter_sessions/photos/ev%20app/screen.jpg" width="250" height="500" alt="Screen"/> |
+
+</div>
+
+---
+
+### 🛒 Market WE - E-Commerce Platform
+
+<div align="center">
+
+| Login Screen | Register Screen |
+|:------------:|:---------------:|
+| <img src="we_flutter_sessions/photos/we-market/login.png" width="250" height="500" alt="Login"/> | <img src="we_flutter_sessions/photos/we-market/register.png" width="250" height="500" alt="Register"/> |
+
+| User Dashboard | Admin Dashboard | Add Product |
+|:--------------:|:---------------:|:-----------:|
+| <img src="we_flutter_sessions/photos/we-market/user%20dashboard%20.jpg" width="250" height="500" alt="User Dashboard"/> | <img src="we_flutter_sessions/photos/we-market/admin%20dashboard%20.jpg" width="250" height="500" alt="Admin Dashboard"/> | <img src="we_flutter_sessions/photos/we-market/add%20product.jpg" width="250" height="500" alt="Add Product"/> |
+
+| Create Account | Update Product |
+|:--------------:|:--------------:|
+| <img src="we_flutter_sessions/photos/we-market/create%20acc.jpg" width="250" height="500" alt="Create Account"/> | <img src="we_flutter_sessions/photos/we-market/update%20product.jpg" width="250" height="500" alt="Update Product"/> |
+
+</div>
+
+---
+
+### 🧮 Other Learning Projects
+
+<div align="center">
+
+| Calculator App | Messenger Clone | Database App |
+|:--------------:|:---------------:|:------------:|
+| <img src="we_flutter_sessions/photos/calculator%20.jpg" width="250" height="500" alt="Calculator"/> | <img src="we_flutter_sessions/photos/massenger.png" width="250" height="500" alt="Messenger"/> | <img src="we_flutter_sessions/photos/database.png" width="250" height="500" alt="Database"/> |
+
+</div>
+
+**Additional Screenshots:**
+- 📊 Firebase Authentication: `we_flutter_sessions/photos/firebase authentication.png`
+- 🗄️ Gas Database: `we_flutter_sessions/photos/gas database.png`
+- 🔋 EV Database: `we_flutter_sessions/photos/ev database.png`
+- 📈 Data Examples: `we_flutter_sessions/photos/data1.png`
 
 ---
 
