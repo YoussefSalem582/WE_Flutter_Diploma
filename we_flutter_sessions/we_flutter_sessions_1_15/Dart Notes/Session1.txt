@@ -1,0 +1,39 @@
+main(){
+  print(190*3+75*2+50*5);
+}
+
+-------------------------------------------
+
+main(){
+  print('55 + 15 = ' + (55+15).toString());
+  print('70 - 20 = ' + (70-20).toString());
+  print('50 / 10 = ' + (50/10).toString());
+  print('5 * 5 =  ${5*5}' );
+}
+
+---------------------------------------------
+
+main(){
+  int x = 50;
+  int y = 20;
+  int z = 10;
+  int i = 5;
+  print('50 + 20 =  ${x+y} ');
+  print('50 - 20 =  ${x-y}');
+  print('50 / 10 =  ${x/z}');
+  print('5 * 5 =  ${i*i}' );
+}
+
+------------------------------------------
+
+import "dart:io";
+
+main(){
+  print("Please enter your numbers: ");
+  int x = int.parse(stdin.readLineSync()!);
+  int y = int.parse(stdin.readLineSync()!);
+  print(x*y);
+  print(x-y);
+  print(x+y);
+  print(x/y);
+}

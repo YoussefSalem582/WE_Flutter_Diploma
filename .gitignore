@@ -1,0 +1,30 @@
+# Large files
+*.apk
+*.mp4
+*.pptx
+
+# Build files
+**/build/
+**/.gradle/
+**/android/.gradle/
+**/android/app/build/
+
+# IDE files
+**/.idea/
+**/.vscode/
+*.iml
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Flutter/Dart
+**/.dart_tool/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/.packages
+**/.pub-cache/
+**/.pub/
+**/pubspec.lock

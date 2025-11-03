@@ -1,0 +1,307 @@
+//------------------------------------------------ task1 -------------------------------------------------------------
+
+//--------------------------------------------------------- app -----------------------------------------------------
+
+
+import 'package:flutter/material.dart';
+import 'package:untitled/we_flutter_sessions/session14%20%20(29-8-2024)/showUserData.dart';
+import 'userDatailsPage.dart';
+
+class Databaseapp extends StatefulWidget {
+  State<Databaseapp> createState() => _userDatabaseState();
+}
+
+class _userDatabaseState extends State<Databaseapp> {
+  ShowUserData userobject = ShowUserData();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    userobject.createDatabaseAndTable();
+  }
+
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.deepPurple,
+      ),
+      body: Container(
+        child: Column(
+          children: [
+            Center(
+                child: Text(
+              'Database',
+              style: TextStyle(fontSize: 40, fontFamily: 'font1'),
+            )),
+            for (int i = 0; i < userobject.users.length; i++)
+              MaterialButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (c) {
+                    return userDetails(userobject.users[i]);
+                  }));
+                },
+                child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundColor: Colors.blueGrey,
+                    child: Text(userobject.users[i]['id'].toString()),
+                  ),
+                  title: Text(userobject.users[i]['name']),
+                ),
+              ),
+            MaterialButton(
+              onPressed: () async {
+                userobject.insertData(
+                    name: 'sessm',
+                    email: 'alo@gmail.com',
+                    password: 'password');
+              },
+              color: Colors.green,
+              child: Text("insert data"),
+            ),
+            MaterialButton(
+              onPressed: () async {
+                userobject.updateData(
+                    name: 'joe',
+                    email: 'joeee@gmail.com',
+                    password: '123123');
+              },
+              color: Colors.grey,
+              child: Text("update data"),
+            ),
+            MaterialButton(
+              onPressed: () async {
+                userobject.delData(id: 5);
+              },
+              color: Colors.red,
+              child: Text("delete data"),
+            ),
+            MaterialButton(
+              onPressed: () async {
+                print(await userobject.showUser());
+              },
+              color: Colors.lightBlue,
+              child: Text('show data'),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+//-------------------------------------------- Database ------------------------------------------------------------------
+
+
+import 'package:sqflite/sqflite.dart';
+
+
+// select L * hat L data kolaha
+class ShowUserData {
+  late Database db;
+  late List<Map> users=[];
+
+  createDatabaseAndTable()async{
+    db =await openDatabase(
+        "u.db",
+        version: 1,
+        onCreate: (d,i)async{
+          await d.execute('create table user (id integer primary key,name text,email text,password text)');
+          print('user created');
+        },
+        onOpen: (d){
+          print('Database Open');
+        }
+    );
+    showUser().then((value){
+      users=value;
+      print(users);
+    });
+  }
+  insertData({
+    required String name,
+    required String email,
+    required String password
+  })async {
+    await db.transaction((txn) async {
+      txn.rawInsert(
+          "insert into user (name,email,password)"
+              "values ('$name','$email','$password')"
+      ).then((value) {
+        print(value);
+      });
+    });
+  }
+  updateData({
+    required String name,
+    required String email,
+    required String password
+  })async{
+    await db.rawUpdate(
+        'UPDATE user SET name = "$name", email = "$email", password = "$password"' );
+    print('data updated');
+
+  }
+  delData({
+    required int id
+  })async{
+    await db.rawDelete('DELETE FROM user WHERE id = $id');
+    print('user deleted');
+  }
+  Future<List<Map>> showUser()async{
+    return await db.rawQuery("select * from user");
+  }
+}
+
+
+//------------------------------------------------------------- User details ---------------------------------------------------
+
+import 'package:flutter/material.dart';
+
+
+class userDetails extends StatelessWidget {
+  late Map data;
+  userDetails(this.data);
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blueGrey,
+      ),
+      body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('email is: ${data['email']}',
+              style: TextStyle(fontSize: 40),),
+            Text('password is: ${data['password']}',
+              style: TextStyle(fontSize: 40),),
+            Text('id is: ${data['id']}',
+              style: TextStyle(fontSize: 40),)
+          ]
+      ),
+    );
+  }
+}
+
+
+//----------------------------------------------------------------------- task 2 ------------------------------------------------
+
+//----------------------------------------------------- app ---------------------------------------------------------------
+
+
+import 'package:flutter/material.dart';
+import 'package:untitled/we_flutter_sessions/session14%20%20(29-8-2024)/showUserData.dart';
+import 'userDatailsPage.dart';
+
+class Databaseapp extends StatefulWidget {
+  State<Databaseapp> createState() => _userDatabaseState();
+}
+
+class _userDatabaseState extends State<Databaseapp> {
+  var email = TextEditingController();
+  var name = TextEditingController();
+  var password = TextEditingController();
+
+  ShowUserData userobject = ShowUserData();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    userobject.createDatabaseAndTable();
+  }
+
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.deepPurple,
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Center(
+                    child: Text(
+                  'Database',
+                  style: TextStyle(fontSize: 40, fontFamily: 'font1'),
+                )),
+              ),
+              for (int i = 0; i < userobject.users.length; i++)
+                MaterialButton(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (c) {
+                      return userDetails(userobject.users[i]);
+                    }));
+                  },
+                  child: ListTile(
+                    leading: CircleAvatar(
+                      backgroundColor: Colors.blueGrey,
+                      child: Text(userobject.users[i]['id'].toString()),
+                    ),
+                    title: Text(userobject.users[i]['name']),
+                  ),
+                ),
+              Divider(
+                thickness: 3,
+                indent: 20,
+                endIndent: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  controller: email,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      labelText: 'Email'),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  controller: name,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      labelText: 'Name'),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  obscureText: true,
+                  controller: password,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      labelText: 'Password'),
+                ),
+              ),
+              MaterialButton(onPressed: () async {
+                userobject.insertData(
+                    name: name.text, email: email.text, password: password.text);
+                email.text = '';
+                name.text = '';
+                password.text = '';
+                userobject.users = await userobject.showUser();
+
+
+                setState(()  {
+                });
+              },
+              color: Colors.green,
+                child: Text('Enter'),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

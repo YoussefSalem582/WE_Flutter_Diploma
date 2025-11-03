@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "389473436868",
+    "project_id": "session16-fae79",
+    "storage_bucket": "session16-fae79.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:389473436868:android:9c7211ddc919a5f8aeb591",
+        "android_client_info": {
+          "package_name": "com.example.session16"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtgjX-e-ae-64mumjDoPylLiFmDaGggl4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
